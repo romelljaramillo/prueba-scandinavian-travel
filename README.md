@@ -38,6 +38,12 @@ SCANDINAVIAN_API_USER=
 SCANDINAVIAN_API_PASS=
 SCANDINAVIAN_API_TOKEN=
 
+### Importar librerias php
+
+```
+composer install
+```
+
 ### Generar la key 
 ```
 php artisan key:generate
@@ -47,6 +53,7 @@ php artisan key:generate
 ```
 npm install
 ```
+
 ### Ejecutar laravel server
 
 ```
