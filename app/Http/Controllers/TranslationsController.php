@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Repositories\Translations;
 
 class TranslationsController extends Controller
@@ -14,6 +13,11 @@ class TranslationsController extends Controller
         $this->translations = $translations;
     }
 
+    /**
+     * Renderiza la vista index
+     *
+     * @return void
+     */
     public function index()
     {
         $translations = $this->translations->all();
@@ -21,14 +25,21 @@ class TranslationsController extends Controller
         foreach ($translations as $translation) {
             $resul[] = $this->porcessLangs($translation);
         }
+
         $translations = $resul;
 
         $groups = $this->translations->getAllGroup();
         $langs = $this->getLangs();
        
-        return view('translations.index', compact('translations','groups','langs'));
+        return view('index', compact('translations','groups','langs'));
     }
 
+    /**
+     * Devuelve la información del grupo filtrado
+     *
+     * @param string $full_key
+     * @return void
+     */
     public function show(string $full_key)
     {
         $translations = $this->translations->find($full_key);
@@ -38,6 +49,13 @@ class TranslationsController extends Controller
         return $translations;
     }
 
+    /**
+     * Transforma la información asignado la traducción ingles 
+     * Si no tiene traducción
+     *
+     * @param obj $translation
+     * @return obj
+     */
     public function porcessLangs($translation)
     {
         $langs = $this->getLangs();
@@ -49,6 +67,11 @@ class TranslationsController extends Controller
         return $translation;
     }
 
+    /**
+     * Retorna los idiomas usados
+     *
+     * @return array
+     */
     public function getLangs()
     {
         return [

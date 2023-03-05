@@ -1,18 +1,18 @@
 import './bootstrap';
 import 'laravel-datatables-vite';
-// import 'datatables.net-buttons-bs5';
 import 'mark.js';
 import 'datatables.mark.js';
-// import 'jszip';
+
+window.$ = $;
 
 $(document).ready(function () {
     var oTable = $('#table-translations').DataTable({
         mark: true,
         lengthChange: false,
-        buttons: [
-            'csv', 'excel'
-        ]
+        buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
     });
+
+    oTable.buttons().container().appendTo( '#buttons-container' );
 
     $('#datatable-search-input').on( 'keyup', function () {
         oTable.search($(this).val()).draw();
