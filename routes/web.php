@@ -15,4 +15,5 @@ use App\Http\Controllers\TranslationsController;
 
 Route::controller(TranslationsController::class)->group(function () {
     Route::get('/', 'index');
+    Route::get('/show/{full_key}', 'show');
 });

@@ -1,1 +1,30 @@
 @import 'bootstrap/scss/bootstrap';
+
+
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+@import "datatables.net-bs5/css/dataTables.bootstrap5.min.css";
+@import "datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css";
+@import 'datatables.net-select-bs5/css/select.bootstrap5.css';
+
+
+#table-translations_filter {
+    display: none;
+}
+
+.dt-buttons {
+    float: right;
+}
+
+.search {
+    position: relative;
+}
+
+.search input {
+    text-indent: 25px;
+}
+
+.search .bi-search {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
